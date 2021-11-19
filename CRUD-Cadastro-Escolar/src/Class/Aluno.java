@@ -22,6 +22,9 @@ public class Aluno extends Pessoa{
 		Disciplinas = disciplinas;
 	}
 
+	
+	
+
 	public String getDataMatricula() {
 		return DataMatricula;
 	}
