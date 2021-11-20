@@ -8,7 +8,7 @@ public interface InterfaceAluno {
 	
 	public void CadastrarDisciplina ();
 	
-	public boolean ExcluirDisciplina();
+	public void ExcluirDisciplina();
 	
 	public String Recuperacao();
 }

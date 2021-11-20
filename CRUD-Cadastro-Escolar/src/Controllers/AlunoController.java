@@ -72,14 +72,25 @@ public class AlunoController implements InterfaceAluno {
 	}
 
 	@Override
-	public boolean ExcluirDisciplina() {
-		int DisciplinaExcluir = Integer
+	public void ExcluirDisciplina() {
+		int opc = Integer.valueOf(JOptionPane.showConfirmDialog(null, "Deseja Apagar Excluir alguma Disciplina?",
+				"Atenção", JOptionPane.YES_NO_OPTION));
+		
+		if(opc == 0) {
+			
+			int condicao = 0;
+			while(condicao == 0) {
+			
+			int DisciplinaExcluir = Integer
 				.parseInt(JOptionPane.showInputDialog(null, "Informe a Disciplina Que Deseja Exlcuir"));
 
+			notas = notas-this.Disciplinas.get(DisciplinaExcluir-1).getNota();
 		this.Disciplinas.remove(DisciplinaExcluir - 1);
-		return true;
+		
+		condicao = JOptionPane.showConfirmDialog(null, "Continuar Removendo?");
 		// TODO Auto-generated method stub
-
+		}
+		}
 	}
 
 	@Override

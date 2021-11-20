@@ -11,14 +11,7 @@ public class Principal {
 
 		alunoController.CadastrarAluno();
 
-		int opc = Integer.valueOf(JOptionPane.showConfirmDialog(null, "Deseja Apagar Excluir alguma Disciplina?",
-				"Atenção", JOptionPane.YES_NO_OPTION));
-
-		if (opc == 0) {
-			if (alunoController.ExcluirDisciplina()) {
-				JOptionPane.showMessageDialog(null, "Disciplina Ecluida Com Sucesso!");
-			}
-		}
+		alunoController.ExcluirDisciplina();
 		
 		JOptionPane.showMessageDialog(null, alunoController.Recuperacao());
 	}
