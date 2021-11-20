@@ -11,4 +11,6 @@ public interface InterfaceAluno {
 	public void ExcluirDisciplina();
 	
 	public String Recuperacao();
+	
+	public void ListarAlunos();
 }

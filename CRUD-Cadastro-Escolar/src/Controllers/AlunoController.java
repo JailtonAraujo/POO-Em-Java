@@ -41,15 +41,16 @@ public class AlunoController implements InterfaceAluno {
 			if (op == 0) {
 				this.CadastrarDisciplina();
 			}
-			
+
 			this.ExcluirDisciplina();
-			
+
 			JOptionPane.showMessageDialog(null, this.Recuperacao());
 			Aluno aluno = new Aluno(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae, dataMatricula, nomeEscola,
 					serieMatriculado, Disciplinas);
 
 			this.alunos.add(aluno);
 
+			this.ListarAlunos();
 			condicao = JOptionPane.showConfirmDialog(null, "Cadastrar Novamente?");
 
 			// TODO Auto-generated method stub
@@ -118,6 +119,16 @@ public class AlunoController implements InterfaceAluno {
 		}
 
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void ListarAlunos() {
+		for (Aluno aluno : this.alunos) {
+			System.out.println(aluno);
+			System.out.println("=======================================================================================");
+
+		}
+
 	}
 
 }
