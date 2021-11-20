@@ -4,7 +4,7 @@ import Class.Aluno;
 
 public interface InterfaceAluno {
 	
-	public Aluno CadastrarAluno();
+	public void CadastrarAluno();
 	
 	public void CadastrarDisciplina ();
 	

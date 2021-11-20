@@ -1,6 +1,5 @@
 package main;
 
-import javax.swing.JOptionPane;
 
 import Controllers.AlunoController;
 
@@ -11,9 +10,7 @@ public class Principal {
 
 		alunoController.CadastrarAluno();
 
-		alunoController.ExcluirDisciplina();
 		
-		JOptionPane.showMessageDialog(null, alunoController.Recuperacao());
 	}
 
 }
