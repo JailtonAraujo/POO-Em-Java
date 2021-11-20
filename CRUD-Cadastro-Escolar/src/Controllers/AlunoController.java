@@ -13,7 +13,8 @@ import Interfaces.InterfaceAluno;
 public class AlunoController implements InterfaceAluno {
 
 	// List <Aluno> alunos = new ArrayList <Aluno> ();
-	List<Disciplina> Disciplinas = new ArrayList<Disciplina>();
+	List<Disciplina> Disciplinas;
+	float notas;
 	Random rand = new Random();
 
 	@Override
@@ -46,20 +47,51 @@ public class AlunoController implements InterfaceAluno {
 	@Override
 	public void CadastrarDisciplina() {
 		boolean sair = false;
-
+		int cont = 1;
+		this.Disciplinas = new ArrayList<Disciplina>();
 		while (sair == false) {
-			String NomeDaDisciplina = JOptionPane.showInputDialog(null, "Digite o Nome Da Disciplina");
-			float Nota = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite a Nota"));
+			String NomeDaDisciplina = JOptionPane.showInputDialog(null,
+					"Digite o Nome Da " + (this.Disciplinas.size() + 1) + " Disciplina");
+			float Nota = Float.parseFloat(JOptionPane.showInputDialog(null,
+					"Digite a Nota Da " + (this.Disciplinas.size() + 1) + " Discplina"));
 
 			Disciplina disciplina = new Disciplina(NomeDaDisciplina, Nota);
 
 			this.Disciplinas.add(disciplina);
-			
-			int opc = JOptionPane.showConfirmDialog(null, "Diseja Cadastrar Outra Disciplina?","Atenção", JOptionPane.YES_NO_OPTION);
-			
-			if(opc == 1) {
+			notas = notas + disciplina.getNota();
+
+			int opc = JOptionPane.showConfirmDialog(null, "Diseja Cadastrar Outra Disciplina?", "Atenção",
+					JOptionPane.YES_NO_OPTION);
+
+			if (opc == 1) {
 				sair = true;
 			}
+		}
+
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public boolean ExcluirDisciplina() {
+		int DisciplinaExcluir = Integer
+				.parseInt(JOptionPane.showInputDialog(null, "Informe a Disciplina Que Deseja Exlcuir"));
+
+		this.Disciplinas.remove(DisciplinaExcluir - 1);
+		return true;
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String Recuperacao() {
+		if (notas / (this.Disciplinas.size()) >= 5.0) {
+			if (notas / (this.Disciplinas.size()) >= 7.0) {
+				return "Aluno Aprovado";
+			} else {
+				return "Aluno Em Recuperação";
+			}
+		} else {
+			return "Aluno Reprovado";
 		}
 
 		// TODO Auto-generated method stub
