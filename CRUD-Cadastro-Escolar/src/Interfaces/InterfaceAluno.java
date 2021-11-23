@@ -1,7 +1,5 @@
 package Interfaces;
 
-import Class.Aluno;
-
 public interface InterfaceAluno {
 	
 	public void CadastrarAluno();
@@ -10,7 +8,6 @@ public interface InterfaceAluno {
 	
 	public void ExcluirDisciplina();
 	
-	public String Recuperacao();
+	public String Recuperacao(float media);
 	
-	public void ListarAlunos();
 }

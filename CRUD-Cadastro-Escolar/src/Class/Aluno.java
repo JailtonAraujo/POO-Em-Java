@@ -23,6 +23,12 @@ public class Aluno extends Pessoa{
 	}
 
 	
+	public Aluno(int id, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae, String dataMatricula, String nomeEscola, String serieMatriculado) {
+		super(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae);//*Construtor da class mãe*//
+		DataMatricula = dataMatricula;
+		NomeEscola = nomeEscola;
+		SerieMatriculado = serieMatriculado;
+	}
 	
 
 	public String getDataMatricula() {

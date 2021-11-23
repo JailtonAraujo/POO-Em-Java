@@ -16,6 +16,8 @@ public class AlunoController implements InterfaceAluno {
 	List<Disciplina> Disciplinas;
 	float notas;
 	Random rand = new Random();
+	
+
 
 	@Override
 	public void CadastrarAluno() {
@@ -42,15 +44,12 @@ public class AlunoController implements InterfaceAluno {
 				this.CadastrarDisciplina();
 			}
 
-			this.ExcluirDisciplina();
-
-			JOptionPane.showMessageDialog(null, this.Recuperacao());
 			Aluno aluno = new Aluno(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae, dataMatricula, nomeEscola,
 					serieMatriculado, Disciplinas);
+			//dao.CadastrarAluno(aluno);
 
 			this.alunos.add(aluno);
 
-			this.ListarAlunos();
 			condicao = JOptionPane.showConfirmDialog(null, "Cadastrar Novamente?");
 
 			// TODO Auto-generated method stub
@@ -107,26 +106,44 @@ public class AlunoController implements InterfaceAluno {
 	}
 
 	@Override
-	public String Recuperacao() {
-		if (notas / (this.Disciplinas.size()) >= 5.0) {
-			if (notas / (this.Disciplinas.size()) >= 7.0) {
-				return "Aluno Aprovado";
+	public String Recuperacao(float media) {
+		if (media >= 5.0) {
+			if (media >= 7.0) {
+				return "Aprovado";
 			} else {
-				return "Aluno Em Recuperação";
+				return "Recuperação";
 			}
 		} else {
-			return "Aluno Reprovado";
+			return "Reprovado";
 		}
 
 		// TODO Auto-generated method stub
 	}
 
-	@Override
-	public void ListarAlunos() {
-		for (Aluno aluno : this.alunos) {
-			System.out.println(aluno);
-			System.out.println("=======================================================================================");
+	public void CalcularMedia() {
 
+		String nome = JOptionPane.showInputDialog(null, "Informe o nome do aluno que deseja calcular a media:");
+		float madia = 0;
+		boolean achou = false;
+
+		for (Aluno aluno : this.alunos) {
+
+			if (achou = aluno.getNome().equalsIgnoreCase(nome)) {
+
+				for (Disciplina disciplina : aluno.getDisciplinas()) {
+					madia = (madia + disciplina.getNota());
+
+				}
+				madia = madia / aluno.getDisciplinas().size();
+				break;
+			}
+
+		}
+		if (achou == true) {
+			JOptionPane.showMessageDialog(null, "A MEDIA DO ALUNO " + nome + " É " + madia + "");
+			JOptionPane.showMessageDialog(null, "Aluno " + nome + " Esta " + this.Recuperacao(madia) + "!");
+		} else {
+			JOptionPane.showMessageDialog(null, "Aluno Não Encontrado!");
 		}
 
 	}

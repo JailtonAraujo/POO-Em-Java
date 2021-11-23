@@ -1,6 +1,5 @@
 package main;
 
-
 import Controllers.AlunoController;
 
 public class Principal {
@@ -9,6 +8,11 @@ public class Principal {
 		AlunoController alunoController = new AlunoController();
 
 		alunoController.CadastrarAluno();
+		
+		alunoController.ExcluirDisciplina();
+		
+		alunoController.CalcularMedia();
+		
 
 		
 	}

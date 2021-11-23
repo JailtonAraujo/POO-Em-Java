@@ -2,7 +2,10 @@ package Class;
 
 import java.util.Objects;
 
+
+
 public abstract class Pessoa {
+	
 	private int ID;
 	private String Nome;
 	private String CPF;
