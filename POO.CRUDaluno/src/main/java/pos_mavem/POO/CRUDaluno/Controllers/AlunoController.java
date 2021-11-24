@@ -13,12 +13,12 @@ import pos_mavem.POO.CRUDaluno.VIEW.AlunoVIEW;
 
 public class AlunoController implements ICadastro {
 	private final AlunoVIEW view;
-	private final GenericDAO dao;
+	private final GenericDAO <Aluno>dao;
 	private List<Aluno> ListaDeAlunos;
 
 	public AlunoController(AlunoVIEW view) {
 		this.view = view;
-		this.dao = new GenericDAO<>();
+		this.dao = new GenericDAO<Aluno>();
 	}
 
 	@Override
@@ -33,27 +33,26 @@ public class AlunoController implements ICadastro {
 		}
 
 		this.LimparCampos();
-		//this.CarregarTabela();
+		this.CarregarTabela();
 
 	}
 
 	@Override
 	public void CarregarTabela() {
-		String nome = "jailton";
-		String cpf = "4545";
-		String serie = "5465";
-		String escola = "44545";
+		this.ListaDeAlunos = this.dao.Listar(Aluno.class);
+		
 		DefaultTableModel modelo = new DefaultTableModel(
 				new Object[] {"NOME", "CPF" , "SERIE", "ESCOLA"},0 );
 		
-		Object linha[] = new Object[]{
-                nome,
-                cpf,
-                serie,
-                escola
-            };
-		
-		modelo.addRow(linha);
+		for(Aluno aluno : this.ListaDeAlunos) {
+			Object [] linha = new Object[]{
+				aluno.getNome(),
+				aluno.getCPF(),
+				aluno.getSerieMatriculado(),
+				aluno.getNomeEscola()
+			};
+			modelo.addRow(linha);
+		}
 		this.view.getTableAlunos().setModel(modelo);
 		// TODO Auto-generated method stub
 
@@ -76,7 +75,7 @@ public class AlunoController implements ICadastro {
 		this.view.getTextNomeDoPai().setText("");
 		this.view.getTextDataMatricula().setText("");
 		this.view.getTextNomeDaEscola().setText("");
-		this.view.getTextNomeDaEscola().setText("");
+		this.view.getTextSerieMatriculado().setText("");
 
 	}
 

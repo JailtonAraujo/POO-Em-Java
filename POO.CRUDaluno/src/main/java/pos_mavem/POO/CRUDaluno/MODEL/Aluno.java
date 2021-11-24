@@ -2,6 +2,7 @@ package pos_mavem.POO.CRUDaluno.MODEL;
 
 import java.util.Objects;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;

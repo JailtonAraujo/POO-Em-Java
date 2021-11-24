@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Window.Type;
 
 public class AlunoVIEW extends JFrame {
 
@@ -64,6 +65,8 @@ public class AlunoVIEW extends JFrame {
 	 * Create the frame.
 	 */
 	public AlunoVIEW() {
+		setForeground(Color.GRAY);
+		setResizable(false);
 		setTitle("ALUNO");
 		this.controller = new AlunoController(this);
 		
@@ -212,7 +215,7 @@ public class AlunoVIEW extends JFrame {
 		contentPane.add(BtnAtualizar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(null);
+		scrollPane.setViewportBorder(new TitledBorder(null, "Rela\u00E7\u00E3o De Alunos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		scrollPane.setBounds(10, 296, 672, 325);
 		contentPane.add(scrollPane);
 		
