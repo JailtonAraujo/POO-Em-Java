@@ -17,7 +17,7 @@ public interface ICadastro <E>{
 	
 	public void Atualizar();
 	
-	public HashMap Pesquisar();
+	public void ListarPorPesquisar();
 	
 }
 

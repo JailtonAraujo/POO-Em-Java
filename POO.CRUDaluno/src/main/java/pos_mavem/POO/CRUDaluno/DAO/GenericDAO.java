@@ -44,7 +44,7 @@ public class GenericDAO<E> {
 
 			transaction.begin();
 
-			List<E> entidades = entitymanager.createQuery("from " + entidade.getName() + "").getResultList();
+			List<E> entidades = entitymanager.createQuery("from " + entidade.getName() + " where nome like 'j%'").getResultList();
 
 			transaction.commit();
 
@@ -63,29 +63,29 @@ public class GenericDAO<E> {
 	public void Excluir(E entidade) {
 
 		try {
-		
-		EntityManager entitymanager = HibernateUtil.getEntityManager(); // ABRINDO CONEXÃO
 
-		Object id = HibernateUtil.getPrimaryKey(entidade);
+			EntityManager entitymanager = HibernateUtil.getEntityManager(); // ABRINDO CONEXÃO
 
-		EntityTransaction transaction = entitymanager.getTransaction();
+			Object id = HibernateUtil.getPrimaryKey(entidade);
 
-		transaction.begin();
+			EntityTransaction transaction = entitymanager.getTransaction();
 
-		entitymanager
-				.createNativeQuery(
-						"delete from " + entidade.getClass().getSimpleName().toLowerCase() + " where id = " + id)
-				.executeUpdate();
+			transaction.begin();
 
-		transaction.commit();
+			entitymanager
+					.createNativeQuery(
+							"delete from " + entidade.getClass().getSimpleName().toLowerCase() + " where id = " + id)
+					.executeUpdate();
 
-		entitymanager.close();
-		}catch (Exception e) {
+			transaction.commit();
+
+			entitymanager.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public E Atualizar(E entidade) {
 		try {
 
@@ -97,17 +97,47 @@ public class GenericDAO<E> {
 			E enti = entitymanager.merge(entidade);
 
 			transaction.commit();
-			
+
 			entitymanager.close();
-			
+
 			return enti;
-			 
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 			return null;
 		}
 
-}
+	}
+
+	public List<E> Pesquisa(Class<E> entidade, String search) {
+
+		try {
+
+			EntityManager entitymanager = HibernateUtil.getEntityManager(); // ABRINDO CONEXÃO
+
+
+			EntityTransaction transaction = entitymanager.getTransaction();
+
+			transaction.begin();
+
+			List<E> entidades = entitymanager.createQuery("from " + entidade.getName() + " where nome like '"+search+"%'").getResultList();
+
+			transaction.commit();
+		
+			entitymanager.close();
+			
+			return entidades;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
+	
+	public EntityManager getEntityManager () {
+		EntityManager entitymanager = HibernateUtil.getEntityManager();
+		return entitymanager;
+	}
 }

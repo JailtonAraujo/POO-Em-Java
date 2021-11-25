@@ -3,6 +3,8 @@ package pos_mavem.POO.CRUDaluno;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.junit.Test;
 
 import pos_mavem.POO.CRUDaluno.DAO.GenericDAO;
@@ -26,7 +28,7 @@ public class TestHibernate {
 	}
 
 	@Test
-	public void TestarConsulta() {
+	public void TestarListar() {
 		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
 
 		List<Aluno> lis = dao.Listar(Aluno.class);
@@ -70,6 +72,33 @@ public class TestHibernate {
 		//dao.Atualizar(aluno);
 		
 		//System.out.println(dao.Atualizar(aluno));
+	}
+	
+	
+	@Test
+	public void TestarPesquisa() {
+		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
+
+		List<Aluno> lis = dao.Pesquisa(Aluno.class,"j");
+
+		for (Aluno aluno : lis) {
+			System.out.println(aluno);
+			System.out.println("=================");
+		}
+
+	}
+	
+	@Test
+	public void TestPesquisa() {
+		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
+		
+		List<Aluno> lis =  dao.getEntityManager().createQuery("from "+Aluno.class+"").getResultList();
+		
+		for (Aluno aluno : lis) {
+			System.out.println(aluno);
+			System.out.println("=================");
+		}
+		
 	}
 
 }

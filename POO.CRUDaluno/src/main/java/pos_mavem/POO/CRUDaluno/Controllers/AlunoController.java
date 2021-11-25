@@ -171,11 +171,22 @@ public class AlunoController implements ICadastro {
 	}
 
 	@Override
-	public HashMap Pesquisar() {
+	public void ListarPorPesquisar() {
+		
+		String search = this.view.getTextSearch().getText();
+		this.ListaDeAlunos = this.dao.Pesquisa(Aluno.class, search);
+		
+		DefaultTableModel modelo = new DefaultTableModel(new Object[] { "NOME", "CPF", "SERIE", "ESCOLA" }, 0);
+
+		for (Aluno aluno : this.ListaDeAlunos) {
+			Object[] linha = new Object[] { aluno.getNome(), aluno.getCPF(), aluno.getSerieMatriculado(),
+					aluno.getNomeEscola() };
+			modelo.addRow(linha);
+		}
+		this.view.getTableAlunos().setModel(modelo);
 		
 		
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
