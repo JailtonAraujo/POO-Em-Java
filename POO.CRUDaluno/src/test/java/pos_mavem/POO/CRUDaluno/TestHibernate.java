@@ -42,7 +42,34 @@ public class TestHibernate {
 	public void TestarExcluir() {
 		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
 		
-		dao.Excluir(Aluno.class, 2);
+		Aluno aluno = new Aluno();
+		aluno.setID(2);
+		
+		dao.Excluir(aluno);
+	}
+	
+	@Test
+	public void TestarAtualizar() {
+		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
+		
+		Aluno aluno = new Aluno();
+		
+		aluno.setID(3);
+		aluno.setNome("jjasd");;
+		aluno.setCPF("asdasd");
+		aluno.setRG("asdsdasd");
+		aluno.setDataNascimento("asddfdsasd");
+		aluno.setNomeMae("asdafsd");
+		aluno.setNomeMae("dsad");
+		aluno.setDataMatricula("asddfasd");
+		aluno.setNomeEscola("afdsdasd");
+		aluno.setSerieMatriculado("asffdasd");
+		
+		//System.out.println(aluno);
+		
+		//dao.Atualizar(aluno);
+		
+		//System.out.println(dao.Atualizar(aluno));
 	}
 
 }

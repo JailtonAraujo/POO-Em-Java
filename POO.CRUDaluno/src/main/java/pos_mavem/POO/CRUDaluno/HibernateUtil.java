@@ -33,4 +33,8 @@ public class HibernateUtil {
 		
 	}
 	
+	public static Object getPrimaryKey (Object entity) {  //RETORNA O IDENTIFICADOR DA ENTIDADE PASSDA//
+		return factory.getPersistenceUnitUtil().getIdentifier(entity);
+	}
+	
 }

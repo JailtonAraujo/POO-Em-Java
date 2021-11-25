@@ -1,5 +1,7 @@
 package pos_mavem.POO.CRUDaluno.Interfaces;
 
+import java.util.HashMap;
+
 import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 
 public interface ICadastro <E>{
@@ -11,7 +13,11 @@ public interface ICadastro <E>{
 	
 	public void LimparCampos();
 	
-	public void Editar();
+	public void Delete();
+	
+	public void Atualizar();
+	
+	public HashMap Pesquisar();
 	
 }
 

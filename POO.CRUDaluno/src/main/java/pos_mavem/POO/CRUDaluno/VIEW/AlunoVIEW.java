@@ -203,14 +203,29 @@ public class AlunoVIEW extends JFrame {
 		contentPane.add(BtnSalvar);
 		
 		JButton BtnExcluir = new JButton("EXCLUIR");
+		BtnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Delete();
+			}
+		});
 		BtnExcluir.setBounds(185, 238, 89, 33);
 		contentPane.add(BtnExcluir);
 		
 		JButton BtnEditar = new JButton("EDITAR");
+		BtnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.SetarCampos();
+			}
+		});
 		BtnEditar.setBounds(376, 238, 89, 33);
 		contentPane.add(BtnEditar);
 		
 		JButton BtnAtualizar = new JButton("AUTALIZAR");
+		BtnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Atualizar();
+			}
+		});
 		BtnAtualizar.setBounds(538, 238, 103, 33);
 		contentPane.add(BtnAtualizar);
 		
