@@ -23,6 +23,8 @@ import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Window.Type;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class AlunoVIEW extends JFrame {
 
@@ -50,7 +52,6 @@ public class AlunoVIEW extends JFrame {
 
 	private final AlunoController controller;
 	private JTextField TextSearch;
-	private JButton BtnSearch;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -86,6 +87,11 @@ public class AlunoVIEW extends JFrame {
 		panel.setBounds(10, 0, 672, 227);
 		contentPane.add(panel);
 		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(AlunoVIEW.class.getResource("/pos_mavem/POO/CRUDaluno/VIEW/search.png")));
+		lblNewLabel_1.setBounds(376, 184, 23, 20);
+		panel.add(lblNewLabel_1);
 
 		TextNome = new JTextField();
 		TextNome.setBounds(10, 85, 182, 20);
@@ -198,14 +204,16 @@ public class AlunoVIEW extends JFrame {
 		panel.add(BtnLimpar);
 
 		TextSearch = new JTextField();
+		TextSearch.setToolTipText("Pesuisar");
+		TextSearch.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				controller.ListarPorPesquisar();
+			}
+		});
 		TextSearch.setBounds(205, 184, 172, 20);
 		panel.add(TextSearch);
 		TextSearch.setColumns(10);
-
-		BtnSearch = new JButton("");
-		BtnSearch.setIcon(new ImageIcon(AlunoVIEW.class.getResource("/pos_mavem/POO/CRUDaluno/VIEW/search.png")));
-		BtnSearch.setBounds(376, 183, 39, 23);
-		panel.add(BtnSearch);
 
 		JButton BtnSalvar = new JButton("SALVAR");
 		BtnSalvar.addActionListener(new ActionListener() {
@@ -352,5 +360,4 @@ public class AlunoVIEW extends JFrame {
 	public void setTextSearch(JTextField textSearch) {
 		TextSearch = textSearch;
 	}
-
 }

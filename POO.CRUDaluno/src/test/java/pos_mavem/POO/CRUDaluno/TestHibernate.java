@@ -79,7 +79,7 @@ public class TestHibernate {
 	public void TestarPesquisa() {
 		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
 
-		List<Aluno> lis = dao.Pesquisa(Aluno.class,"j");
+		List<Aluno> lis = dao.Pesquisa(Aluno.class,"");
 
 		for (Aluno aluno : lis) {
 			System.out.println(aluno);

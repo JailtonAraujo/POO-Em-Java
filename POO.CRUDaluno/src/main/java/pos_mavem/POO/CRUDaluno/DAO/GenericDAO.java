@@ -44,7 +44,7 @@ public class GenericDAO<E> {
 
 			transaction.begin();
 
-			List<E> entidades = entitymanager.createQuery("from " + entidade.getName() + " where nome like 'j%'").getResultList();
+			List<E> entidades = entitymanager.createQuery("from " + entidade.getName() + "").getResultList();
 
 			transaction.commit();
 
