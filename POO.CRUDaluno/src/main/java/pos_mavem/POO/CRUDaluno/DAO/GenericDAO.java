@@ -3,35 +3,48 @@ package pos_mavem.POO.CRUDaluno.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.swing.JOptionPane;
 import javax.transaction.Transaction;
 
 import com.mysql.cj.Query;
+import com.mysql.cj.Session;
+import com.mysql.cj.xdevapi.SessionFactory;
 
 import pos_mavem.POO.CRUDaluno.HibernateUtil;
 import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 
 public class GenericDAO<E> {
-
+	static int id;
 	public void salvar(E entidade) {
+		
+	
 		try {
 
+			
 			EntityManager entitymanager = HibernateUtil.getEntityManager();// ABRINDO CONEXÃO
 
 			EntityTransaction transaction = entitymanager.getTransaction();
 
+			
 			transaction.begin();
+			
+			
 			entitymanager.persist(entidade);
-
+			
 			transaction.commit();
 
+			
 			entitymanager.close();
-
+	
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
+		
 	}
 
 	public List<E> Listar(Class<E> entidade) {

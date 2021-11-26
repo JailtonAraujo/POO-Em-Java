@@ -1,5 +1,7 @@
 package pos_mavem.POO.CRUDaluno.MODEL;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import javax.annotation.processing.Generated;
@@ -8,15 +10,32 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-public class Aluno extends Pessoa{
+public class Aluno extends Pessoa implements Serializable{
 	private String DataMatricula;
 	private String NomeEscola;
 	private String SerieMatriculado;
 	
 	public Aluno() {}
 	
-	public Aluno(int id, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae, String dataMatricula, String nomeEscola, String serieMatriculado) {
+	public Aluno(int id, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,String dataMatricula, String nomeEscola, String serieMatriculado) {
 		super(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae);//*Construtor da class mãe*//
+		DataMatricula = dataMatricula;
+		NomeEscola = nomeEscola;
+		SerieMatriculado = serieMatriculado;
+	}
+	
+	public Aluno(int id, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,List<Contato> contatos, String dataMatricula, String nomeEscola, String serieMatriculado) {
+		super(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae, contatos);//*Construtor da class mãe*//
+		DataMatricula = dataMatricula;
+		NomeEscola = nomeEscola;
+		SerieMatriculado = serieMatriculado;
+	}
+	
+	
+
+	public Aluno(String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,List<Contato> contatos,
+			String dataMatricula, String nomeEscola, String serieMatriculado) {
+		super(nome, cPF, rG, dataNascimento, nomePai, nomeMae, contatos);
 		DataMatricula = dataMatricula;
 		NomeEscola = nomeEscola;
 		SerieMatriculado = serieMatriculado;

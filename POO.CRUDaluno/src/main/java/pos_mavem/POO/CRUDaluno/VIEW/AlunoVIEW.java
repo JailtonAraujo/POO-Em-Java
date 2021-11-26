@@ -52,6 +52,9 @@ public class AlunoVIEW extends JFrame {
 
 	private final AlunoController controller;
 	private JTextField TextSearch;
+	private JTextField TextIdContato;
+	private JTextField TextEmail;
+	private JTextField TextTelefone;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -76,7 +79,7 @@ public class AlunoVIEW extends JFrame {
 		this.controller = new AlunoController(this);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 708, 671);
+		setBounds(100, 100, 708, 894);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -221,7 +224,7 @@ public class AlunoVIEW extends JFrame {
 				controller.Cadastrar();
 			}
 		});
-		BtnSalvar.setBounds(31, 238, 89, 33);
+		BtnSalvar.setBounds(40, 464, 89, 33);
 		contentPane.add(BtnSalvar);
 
 		JButton BtnExcluir = new JButton("EXCLUIR");
@@ -230,7 +233,7 @@ public class AlunoVIEW extends JFrame {
 				controller.Delete();
 			}
 		});
-		BtnExcluir.setBounds(185, 238, 89, 33);
+		BtnExcluir.setBounds(194, 464, 89, 33);
 		contentPane.add(BtnExcluir);
 
 		JButton BtnEditar = new JButton("EDITAR");
@@ -239,7 +242,7 @@ public class AlunoVIEW extends JFrame {
 				controller.SetarCampos();
 			}
 		});
-		BtnEditar.setBounds(376, 238, 89, 33);
+		BtnEditar.setBounds(385, 464, 89, 33);
 		contentPane.add(BtnEditar);
 
 		JButton BtnAtualizar = new JButton("AUTALIZAR");
@@ -248,19 +251,51 @@ public class AlunoVIEW extends JFrame {
 				controller.Atualizar();
 			}
 		});
-		BtnAtualizar.setBounds(538, 238, 103, 33);
+		BtnAtualizar.setBounds(547, 464, 103, 33);
 		contentPane.add(BtnAtualizar);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(new TitledBorder(null, "Rela\u00E7\u00E3o De Alunos", TitledBorder.LEADING,
 				TitledBorder.TOP, null, null));
-		scrollPane.setBounds(10, 296, 672, 325);
+		scrollPane.setBounds(10, 519, 672, 325);
 		contentPane.add(scrollPane);
 
 		TableAlunos = new JTable();
 		TableAlunos
 				.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "NOME", "CPF", "SERIE", "ESCOLA" }));
 		scrollPane.setViewportView(TableAlunos);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 238, 672, 215);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		TextIdContato = new JTextField();
+		TextIdContato.setBounds(10, 41, 74, 20);
+		panel_1.add(TextIdContato);
+		TextIdContato.setColumns(10);
+		
+		TextEmail = new JTextField();
+		TextEmail.setBounds(10, 100, 201, 20);
+		panel_1.add(TextEmail);
+		TextEmail.setColumns(10);
+		
+		TextTelefone = new JTextField();
+		TextTelefone.setBounds(10, 161, 201, 20);
+		panel_1.add(TextTelefone);
+		TextTelefone.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("ID:");
+		lblNewLabel_2.setBounds(10, 24, 46, 14);
+		panel_1.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Email");
+		lblNewLabel_3.setBounds(10, 85, 46, 14);
+		panel_1.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Telefone:");
+		lblNewLabel_4.setBounds(10, 146, 46, 14);
+		panel_1.add(lblNewLabel_4);
 
 		controller.CarregarTabela();
 	}

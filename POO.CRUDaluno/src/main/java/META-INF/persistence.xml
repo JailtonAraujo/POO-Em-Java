@@ -7,6 +7,7 @@
 	
 	<class>pos_mavem.POO.CRUDaluno.MODEL.Pessoa</class>
 	<class>pos_mavem.POO.CRUDaluno.MODEL.Aluno</class>
+	<class>pos_mavem.POO.CRUDaluno.MODEL.Contato</class>
 	
 		<properties>
 			<property name="hibernate.connection.driver_class"

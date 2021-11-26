@@ -7,8 +7,10 @@ import javax.persistence.EntityManager;
 
 import org.junit.Test;
 
+import pos_mavem.POO.CRUDaluno.Controllers.AlunoController;
 import pos_mavem.POO.CRUDaluno.DAO.GenericDAO;
 import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
+import pos_mavem.POO.CRUDaluno.MODEL.Contato;
 import pos_mavem.POO.CRUDaluno.MODEL.Pessoa;
 
 public class TestHibernate {
@@ -20,21 +22,37 @@ public class TestHibernate {
 
 		GenericDAO dao = new GenericDAO();
 
-		Aluno aluno = new Aluno(0, "sagdsf", "agsdf", "46g5554", "1012g5/10", "Jogse", "gMaia", "4 duglo", "IBAg",
+		Contato contato = new Contato();
+		contato.setTelefone("45gg4fgfg545");
+		contato.setEmail("564gf65g45");
+		
+		List<Contato> contatos = new ArrayList<Contato>();
+		
+		contatos.add(contato);
+		Aluno aluno = new Aluno(4,"JOnas albre", "agsdf", "46g5554", "1012g5/10", "Jogse", "gMaia",contatos,"4 duglo", "IBAg",
 				"mghj");
+		
+		Aluno novo = new Aluno();
+		
+		//dao.salvar(aluno);
+		
+	
 
-		dao.salvar(aluno);
+		
+		contato.setPessoa(aluno);
+		
+		dao.salvar(contato);
 
 	}
 
 	@Test
 	public void TestarListar() {
-		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
+		GenericDAO dao = new GenericDAO();
 
 		List<Aluno> lis = dao.Listar(Aluno.class);
 
-		for (Aluno aluno : lis) {
-			System.out.println(aluno);
+		for (Aluno contato : lis) {
+			System.out.println(contato);
 			System.out.println("=================");
 		}
 
