@@ -18,7 +18,7 @@ import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 
 public class GenericDAO<E> {
 	static int id;
-	public void salvar(E entidade) {
+	public void salvar(Aluno entidade) {
 		
 	
 		try {
@@ -33,6 +33,7 @@ public class GenericDAO<E> {
 			
 			
 			entitymanager.persist(entidade);
+			//entitymanager.persist(entidade.getContatos());
 			
 			transaction.commit();
 
@@ -84,12 +85,14 @@ public class GenericDAO<E> {
 			EntityTransaction transaction = entitymanager.getTransaction();
 
 			transaction.begin();
-
+			
+			//entitymanager.remove(entidade);
+			
 			entitymanager
 					.createNativeQuery(
 							"delete from " + entidade.getClass().getSimpleName().toLowerCase() + " where id = " + id)
 					.executeUpdate();
-
+	
 			transaction.commit();
 
 			entitymanager.close();

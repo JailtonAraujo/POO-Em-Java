@@ -13,35 +13,36 @@ import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 import pos_mavem.POO.CRUDaluno.MODEL.Contato;
 import pos_mavem.POO.CRUDaluno.MODEL.Pessoa;
 
+
 public class TestHibernate {
 
 	@Test
 	public void TesteHibernateUtil() {
 
-		// HibernateUtil.getEntityManager();
-
-		GenericDAO dao = new GenericDAO();
-
+		Aluno aluno = new Aluno(0, "54654", "4564564", "564564", "4454", "6464564", "465465","545456", "465465", "65456456");
+		
+		//aluno.setNome("jailton");
+		//aluno.setCPF("54654564");
+		//aluno.setNomeMae("maria");
+		
+		
 		Contato contato = new Contato();
-		contato.setTelefone("45gg4fgfg545");
-		contato.setEmail("564gf65g45");
+		contato.setTelefone("5465456");
+		contato.setEmail("5465456");
 		
 		List<Contato> contatos = new ArrayList<Contato>();
 		
-		contatos.add(contato);
-		Aluno aluno = new Aluno(4,"JOnas albre", "agsdf", "46g5554", "1012g5/10", "Jogse", "gMaia",contatos,"4 duglo", "IBAg",
-				"mghj");
-		
-		Aluno novo = new Aluno();
-		
-		//dao.salvar(aluno);
-		
-	
-
-		
 		contato.setPessoa(aluno);
+		contatos.add(contato);
 		
-		dao.salvar(contato);
+		aluno.setContato(contatos);
+		
+		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
+		
+		dao.salvar(aluno);
+		
+		
+		
 
 	}
 
@@ -63,7 +64,13 @@ public class TestHibernate {
 		GenericDAO<Aluno> dao = new GenericDAO<Aluno>();
 		
 		Aluno aluno = new Aluno();
-		aluno.setID(2);
+		aluno.setID(7);
+		
+		Contato contato = new Contato();
+		contato.setPessoa(aluno);
+		List<Contato> contatos = new ArrayList<Contato>();
+		contatos.add(contato);
+		aluno.setContato(contatos);
 		
 		dao.Excluir(aluno);
 	}

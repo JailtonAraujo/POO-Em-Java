@@ -65,11 +65,11 @@ public class Aluno extends Pessoa{
 
 	@Override
 	public String toString() {
-		return "Aluno [DataMatricula=" + DataMatricula + ", NomeEscola=" + NomeEscola + ", SerieMatriculado="
-				+ SerieMatriculado + ", Disciplinas=" + Disciplinas + ", getID()=" + getID() + ", getNome()="
-				+ getNome() + ", getCPF()=" + getCPF() + ", getRG()=" + getRG() + ", getDataNascimento()="
-				+ getDataNascimento() + ", getNomePai()=" + getNomePai() + ", getNomeMae()=" + getNomeMae()
-				+ ", toString()=" + super.toString() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
+		return "Aluno [DataMatricula=" + DataMatricula + "\n, NomeEscola=" + NomeEscola + "\n, SerieMatriculado="
+				+ SerieMatriculado + "\n, Disciplinas=" + Disciplinas + "\n, getID()=" + getID() + "\n, getNome()="
+				+ getNome() + "\n, getCPF()=" + getCPF() + "\n, getRG()=" + getRG() + "\n, getDataNascimento()="
+				+ getDataNascimento() + "\n, getNomePai()=" + getNomePai() + "\n, getNomeMae()=" + getNomeMae()
+				+ ", \ntoString()=" + super.toString() + "\n, hashCode()=" + hashCode() + "\n, getClass()=" + getClass()
 				+ "]";
 	}
 

@@ -395,4 +395,30 @@ public class AlunoVIEW extends JFrame {
 	public void setTextSearch(JTextField textSearch) {
 		TextSearch = textSearch;
 	}
+
+	public JTextField getTextIdContato() {
+		return TextIdContato;
+	}
+
+	public void setTextIdContato(JTextField textIdContato) {
+		TextIdContato = textIdContato;
+	}
+
+	public JTextField getTextEmail() {
+		return TextEmail;
+	}
+
+	public void setTextEmail(JTextField textEmail) {
+		TextEmail = textEmail;
+	}
+
+	public JTextField getTextTelefone() {
+		return TextTelefone;
+	}
+
+	public void setTextTelefone(JTextField textTelefone) {
+		TextTelefone = textTelefone;
+	}
+	
+	
 }

@@ -3,20 +3,26 @@ package pos_mavem.POO.CRUDaluno.MODEL;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Column;
+import javax.annotation.processing.Generated;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
 
+import javax.persistence.OneToMany;
+import javax.persistence.TableGenerator;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "empid_generator")
+	@TableGenerator(name = "empid_generator", initialValue = 1, allocationSize = 1)
 	private int ID;
 	private String Nome;
 	private String CPF;
@@ -24,10 +30,15 @@ public abstract class Pessoa {
 	private String DataNascimento;
 	private String NomePai;
 	private String NomeMae;
+	
+	
+	
+	@OneToMany(mappedBy = "pessoa", cascade =  javax.persistence.CascadeType.ALL)
+	private List<Contato> contato;
 
-	@OneToMany(mappedBy = "pessoa")
-	private List<Contato> contatos;
 
+	
+	
 	public Pessoa(int iD, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae) {
 		ID = iD;
 		Nome = nome;
@@ -37,34 +48,32 @@ public abstract class Pessoa {
 		NomePai = nomePai;
 		NomeMae = nomeMae;
 	}
+	
 
-	
-	
-	public Pessoa(String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,
-			List<Contato> contatos) {
-		Nome = nome;
-		CPF = cPF;
-		RG = rG;
-		DataNascimento = dataNascimento;
-		NomePai = nomePai;
-		NomeMae = nomeMae;
-		this.contatos = contatos;
+
+
+
+	public List<Contato> getContato() {
+		return contato;
 	}
 
 
 
-	public Pessoa(int iD, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,
-			List<Contato> contatos) {
-		super();
-		ID = iD;
-		Nome = nome;
-		CPF = cPF;
-		RG = rG;
-		DataNascimento = dataNascimento;
-		NomePai = nomePai;
-		NomeMae = nomeMae;
-		this.contatos = contatos;
+
+
+
+
+
+
+	public void setContato(List<Contato> contato) {
+		this.contato = contato;
 	}
+
+
+
+
+
+
 
 
 
@@ -72,13 +81,7 @@ public abstract class Pessoa {
 	}
 
 	
-	public List<Contato> getContatos() {
-		return contatos;
-	}
-
-	public void setContatos(List<Contato> contatos) {
-		this.contatos = contatos;
-	}
+	
 
 	public int getID() {
 		return ID;

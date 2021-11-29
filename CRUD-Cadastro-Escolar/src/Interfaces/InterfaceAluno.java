@@ -10,4 +10,10 @@ public interface InterfaceAluno {
 	
 	public String Recuperacao(float media);
 	
+	public void BuscarAluno();
+	
+	public void ExcluirAluno();
+	
+	public void ListarAluno();
+	
 }

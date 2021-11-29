@@ -16,8 +16,6 @@ public class AlunoController implements InterfaceAluno {
 	List<Disciplina> Disciplinas;
 	float notas;
 	Random rand = new Random();
-	
-
 
 	@Override
 	public void CadastrarAluno() {
@@ -46,7 +44,7 @@ public class AlunoController implements InterfaceAluno {
 
 			Aluno aluno = new Aluno(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae, dataMatricula, nomeEscola,
 					serieMatriculado, Disciplinas);
-			//dao.CadastrarAluno(aluno);
+			// dao.CadastrarAluno(aluno);
 
 			this.alunos.add(aluno);
 
@@ -145,6 +143,78 @@ public class AlunoController implements InterfaceAluno {
 		} else {
 			JOptionPane.showMessageDialog(null, "Aluno Não Encontrado!");
 		}
+
+	}
+
+	@Override
+	public void BuscarAluno() {
+
+		if (this.alunos == null) {
+			JOptionPane.showMessageDialog(null, "Você ainda não cadastrou nenhum aluno!");
+		} else {
+
+			String NomeAluno = JOptionPane.showInputDialog("informe o no so aluno que deseja buscar:");
+			boolean achou = false;
+
+			for (Aluno aluno : this.alunos) {
+				if (aluno.getNome().equals(NomeAluno)) {
+					JOptionPane.showMessageDialog(null, aluno);
+					achou = true;
+				}
+			}
+
+			if (achou == false) {
+				JOptionPane.showMessageDialog(null, "Aluno não encontrado!");
+			}
+		}
+
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void ExcluirAluno() {
+
+		if (this.alunos == null) {
+			JOptionPane.showMessageDialog(null, "Você ainda não cadastrou nenhum aluno!");
+		} else {
+
+			String AlunoExluir = JOptionPane.showInputDialog("Informe o nome do aluno que deseja excluir:");
+			boolean achou = false;
+
+			for (Aluno aluno : this.alunos) {
+				if (aluno.getNome().equals(AlunoExluir)) {
+					this.alunos.remove(aluno);
+					JOptionPane.showMessageDialog(null, "Aluno " + AlunoExluir + " Excluir com Sucesso");
+					achou = true;
+				}
+			}
+
+			if (achou == false) {
+				JOptionPane.showMessageDialog(null, "Aluno não encontrado!");
+			}
+			// TODO Auto-generated method stub
+
+		}
+	}
+
+	@Override
+	public void ListarAluno() {
+		String aluns = null;
+
+		if (this.alunos == null) {
+
+			JOptionPane.showMessageDialog(null, "Você ainda não cadastrou nenhum aluno!");
+		} else {
+			for (Aluno aluno : this.alunos) {
+
+				aluns = aluns + aluno.getNome() + "\n";
+
+			}
+			JOptionPane.showMessageDialog(null, aluns);
+		}
+
+		// TODO Auto-generated method stub
 
 	}
 

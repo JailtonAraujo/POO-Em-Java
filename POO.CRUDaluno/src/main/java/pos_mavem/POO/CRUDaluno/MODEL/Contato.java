@@ -1,9 +1,10 @@
 package pos_mavem.POO.CRUDaluno.MODEL;
 
-import java.io.Serializable;
+
+import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.processing.Generated;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,17 +14,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyJoinColumn;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
-public class Contato implements Serializable {
+public class Contato{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
-	@Column(nullable = false)
 	private String Telefone;
-	@Column(nullable = false)
 	private String Email;
 
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pessoa_fk")
 	private Pessoa pessoa;
 
 	public Contato() {
@@ -33,6 +40,7 @@ public class Contato implements Serializable {
 		Telefone = telefone;
 		Email = email;
 	}
+	
 
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -70,7 +78,7 @@ public class Contato implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Contato [Id=" + Id + ", Telefone=" + Telefone + ", Email=" + Email + ", pessoa=" + pessoa + "]";
+		return "Contato [Id=" + Id + ", Telefone=" + Telefone + ", Email=" + Email + ", pessoa=" + "]";
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import pos_mavem.POO.CRUDaluno.DAO.GenericDAO;
 import pos_mavem.POO.CRUDaluno.Interfaces.ICadastro;
 import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
+import pos_mavem.POO.CRUDaluno.MODEL.Contato;
 import pos_mavem.POO.CRUDaluno.VIEW.AlunoVIEW;
 
 
@@ -136,13 +137,23 @@ public class AlunoController implements ICadastro {
 		String DataMatricula = this.view.getTextDataMatricula().getText();
 		String NomeEscola = this.view.getTextNomeDaEscola().getText();
 		String SerieMatriculado = this.view.getTextSerieMatriculado().getText();
+		
+		String telefone = this.view.getTextTelefone().getText();
+		String email = this.view.getTextEmail().getText();
+		
+		
 
 		if (comando.equals("cadastrar")) {
 			id = "0";
 		}
-
+		
 		Aluno aluno = new Aluno(Integer.parseInt(id), Nome, CPF, RG, DataNascimento, NomePai, NomeMae, DataMatricula,
 				NomeEscola, SerieMatriculado);
+		
+		Contato contato = new Contato(telefone, email);
+	
+		
+
 
 		if (this.Validar(aluno)) {
 			return aluno;

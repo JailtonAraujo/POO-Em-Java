@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.processing.Generated;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -24,22 +25,7 @@ public class Aluno extends Pessoa implements Serializable{
 		SerieMatriculado = serieMatriculado;
 	}
 	
-	public Aluno(int id, String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,List<Contato> contatos, String dataMatricula, String nomeEscola, String serieMatriculado) {
-		super(id, nome, cPF, rG, dataNascimento, nomePai, nomeMae, contatos);//*Construtor da class mãe*//
-		DataMatricula = dataMatricula;
-		NomeEscola = nomeEscola;
-		SerieMatriculado = serieMatriculado;
-	}
-	
-	
 
-	public Aluno(String nome, String cPF, String rG, String dataNascimento, String nomePai, String nomeMae,List<Contato> contatos,
-			String dataMatricula, String nomeEscola, String serieMatriculado) {
-		super(nome, cPF, rG, dataNascimento, nomePai, nomeMae, contatos);
-		DataMatricula = dataMatricula;
-		NomeEscola = nomeEscola;
-		SerieMatriculado = serieMatriculado;
-	}
 
 	public String getDataMatricula() {
 		return DataMatricula;
