@@ -106,6 +106,8 @@ public class AlunoController implements ICadastro {
 		this.view.getTextDataMatricula().setText(aluno.getDataMatricula());
 		this.view.getTextNomeDaEscola().setText(aluno.getNomeEscola());
 		this.view.getTextSerieMatriculado().setText(aluno.getSerieMatriculado());
+		this.view.getTextEmail().setText(aluno.getContato().get(0).getEmail());
+		this.view.getTextTelefone().setText(aluno.getContato().get(0).getTelefone());
 
 		// TODO Auto-generated method stub
 
@@ -123,6 +125,8 @@ public class AlunoController implements ICadastro {
 		this.view.getTextDataMatricula().setText("");
 		this.view.getTextNomeDaEscola().setText("");
 		this.view.getTextSerieMatriculado().setText("");
+		this.view.getTextEmail().setText("");
+		this.view.getTextTelefone().setText("");
 
 	}
 
@@ -147,11 +151,14 @@ public class AlunoController implements ICadastro {
 			id = "0";
 		}
 		
+		List<Contato> contatos = new ArrayList<Contato>();
 		Aluno aluno = new Aluno(Integer.parseInt(id), Nome, CPF, RG, DataNascimento, NomePai, NomeMae, DataMatricula,
 				NomeEscola, SerieMatriculado);
 		
 		Contato contato = new Contato(telefone, email);
-	
+		contato.setPessoa(aluno);
+		contatos.add(contato);
+		aluno.setContato(contatos);
 		
 
 
