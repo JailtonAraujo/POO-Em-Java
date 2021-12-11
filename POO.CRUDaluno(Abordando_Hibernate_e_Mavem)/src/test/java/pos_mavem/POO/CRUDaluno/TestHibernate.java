@@ -19,7 +19,7 @@ public class TestHibernate {
 	@Test
 	public void TesteHibernateUtil() {
 
-		Aluno aluno = new Aluno(0, "54654", "4564564", "564564", "4454", "6464564", "465465","545456", "465465", "65456456");
+		Aluno aluno = new Aluno(0, "5i4654", "45kj64564", "564kjh564", "445jk4", "jk6464564", "4jk65465","jk545456", "465465", "65456456");
 		
 		//aluno.setNome("jailton");
 		//aluno.setCPF("54654564");
