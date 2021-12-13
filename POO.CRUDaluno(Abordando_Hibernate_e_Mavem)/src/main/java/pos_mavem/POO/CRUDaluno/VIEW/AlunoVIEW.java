@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.TitledBorder;
 
 import pos_mavem.POO.CRUDaluno.Controllers.AlunoController;
@@ -57,6 +59,18 @@ public class AlunoVIEW extends JFrame {
 	private JTextField TextTelefone;
 
 	public static void main(String[] args) {
+	
+		try {
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+			    if ("Windows".equals(info.getName())) {
+			        UIManager.setLookAndFeel(info.getClassName());
+			        break;
+			    }
+			}
+			} catch (Exception e) {
+			   // If Nimbus is not available, you can set the GUI to another look and feel.
+			}
+	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -271,6 +285,7 @@ public class AlunoVIEW extends JFrame {
 		panel_1.setLayout(null);
 		
 		TextIdContato = new JTextField();
+		TextIdContato.setEditable(false);
 		TextIdContato.setBounds(10, 41, 74, 20);
 		panel_1.add(TextIdContato);
 		TextIdContato.setColumns(10);
@@ -296,6 +311,7 @@ public class AlunoVIEW extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Telefone:");
 		lblNewLabel_4.setBounds(10, 146, 46, 14);
 		panel_1.add(lblNewLabel_4);
+		
 
 		controller.CarregarTabela();
 	}

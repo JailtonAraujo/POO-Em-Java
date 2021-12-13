@@ -4,22 +4,21 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="POO.CRUDaluno">
-	
-	<class>pos_mavem.POO.CRUDaluno.MODEL.Pessoa</class>
-	<class>pos_mavem.POO.CRUDaluno.MODEL.Aluno</class>
-	<class>pos_mavem.POO.CRUDaluno.MODEL.Contato</class>
-	
+
+		<class>pos_mavem.POO.CRUDaluno.MODEL.Pessoa</class>
+		<class>pos_mavem.POO.CRUDaluno.MODEL.Aluno</class>
+		<class>pos_mavem.POO.CRUDaluno.MODEL.Contato</class>
+
 		<properties>
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="hibernate.connection.url"
 				value="jdbc:mysql://localhost:3306/sys?useSSL=false" />
 			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.MySQLInnoDBDialect" />
+				value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.format_sql" value="true" />
-
 
 			<property name="hibernate.hbm2ddl.auto" value="update"></property>
 			<property name="hibernate.show_sql" value="true" />
@@ -28,3 +27,19 @@
 
 	</persistence-unit>
 </persistence>
+
+
+<!--***OBS: INSTRUÇÕES PARA O CASO DE UTILIZAR hbm2ddl.auto COM value="create"*** -->
+
+<!--* NA PRIMEIRA VEZ QUE PERSISTIR DADOS USE O hibernate.dialect com value=""org.hibernate.dialect.MySQLDialect" 
+	* APÓS CRIADA AS TABELAS NO BD AS MESMAS TERÃO O ENGINE COMO MyISAM COMO 
+	ESTE ENGINE NÃO PERMITE FOREIGN KEY OU ATRIBUIÇÃO DE INDEX MUDE O ENGINE 
+	DA TEBLA PARA InnoDB E MUDE TBM O hibernate.dialect para org.hibernate.dialect.MySQLInnoDBDialect 
+	COM ISSO PODERÁ CRIAR FOREIGN E INDEX NA RESPECTIVA TABELA. 
+	*LEMBRE QUE APOS A TEBLA SER CRIADO O hbm2ddl.auto DEVE SER MUDADO PARA value="update", 
+	CASO O CONTRARIO AS TEBELAS SERÃO SEMPRE EXCLUIDAS QUANDO PERSISTIR DADOS* 
+	
+	
+	*** É IMPORTANTE RESSALTAR QUE NAS VERSÃO DE HIBERNATE USADA NÃO É PERMITIDO 
+	A CRIAÇÃO DE TABELAS USUANDO O hbm2ddl.auto COM value="create" E hibernate.dialect 
+	COM org.hibernate.dialect.MySQLInnoDBDialect*** -->
