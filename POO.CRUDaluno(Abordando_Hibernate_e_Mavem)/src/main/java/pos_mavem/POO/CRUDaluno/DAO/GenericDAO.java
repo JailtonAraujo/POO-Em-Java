@@ -63,6 +63,7 @@ public class GenericDAO<E> {
 			transaction.commit();
 
 			entitymanager.close();
+			
 
 			return entidades;
 

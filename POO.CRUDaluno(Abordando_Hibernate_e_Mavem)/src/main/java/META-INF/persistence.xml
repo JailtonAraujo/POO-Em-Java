@@ -31,10 +31,10 @@
 
 <!--***OBS: INSTRUÇÕES PARA O CASO DE UTILIZAR hbm2ddl.auto COM value="create"*** -->
 
-<!--* NA PRIMEIRA VEZ QUE PERSISTIR DADOS USE O hibernate.dialect com value=""org.hibernate.dialect.MySQLDialect" 
+<!--* NA PRIMEIRA VEZ QUE PERSISTIR DADOS USE O hibernate.dialect COM value=""org.hibernate.dialect.MySQLDialect" 
 	* APÓS CRIADA AS TABELAS NO BD AS MESMAS TERÃO O ENGINE COMO MyISAM COMO 
 	ESTE ENGINE NÃO PERMITE FOREIGN KEY OU ATRIBUIÇÃO DE INDEX MUDE O ENGINE 
-	DA TEBLA PARA InnoDB E MUDE TBM O hibernate.dialect para org.hibernate.dialect.MySQLInnoDBDialect 
+	DA TEBLA PARA InnoDB E MUDE TBM O hibernate.dialect PARA org.hibernate.dialect.MySQLInnoDBDialect 
 	COM ISSO PODERÁ CRIAR FOREIGN E INDEX NA RESPECTIVA TABELA. 
 	*LEMBRE QUE APOS A TEBLA SER CRIADO O hbm2ddl.auto DEVE SER MUDADO PARA value="update", 
 	CASO O CONTRARIO AS TEBELAS SERÃO SEMPRE EXCLUIDAS QUANDO PERSISTIR DADOS* 
