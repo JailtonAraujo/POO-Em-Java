@@ -12,6 +12,7 @@ import pos_mavem.POO.CRUDaluno.DAO.GenericDAO;
 import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 import pos_mavem.POO.CRUDaluno.MODEL.Contato;
 import pos_mavem.POO.CRUDaluno.MODEL.Pessoa;
+import pos_mavem.POO.CRUDaluno.MODEL.Professor;
 
 
 public class TestHibernate {
@@ -45,6 +46,41 @@ public class TestHibernate {
 		
 
 	}
+	
+	@Test
+	public void TesteClasseProfesssor() {
+		
+		Professor professor = new Professor(0, "Lucas", "456456", "gfdg", "fsdfds", "fdsfdsf", "fdsfds", "fdfsd", "gfdgfdg");
+		
+		
+		
+		//aluno.setNome("jailton");
+		//aluno.setCPF("54654564");
+		//aluno.setNomeMae("maria");
+		
+		
+		Contato contato = new Contato();
+		contato.setTelefone("4544654");
+		contato.setEmail("dsfdsfsdf");
+		contato.setPessoa(professor);
+		
+		List<Contato> contatos = new ArrayList<Contato>();
+		
+		contatos.add(contato);
+		
+		professor.setContato(contatos);
+		
+		GenericDAO<Professor> dao = new GenericDAO<Professor>();
+		
+		dao.salvar(professor);
+		
+		
+		
+		
+		
+
+	}
+	
 
 	@Test
 	public void TestarListar() {

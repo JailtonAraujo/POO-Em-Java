@@ -18,7 +18,7 @@ import pos_mavem.POO.CRUDaluno.MODEL.Aluno;
 
 public class GenericDAO<E> {
 	static int id;
-	public void salvar(Aluno entidade) {
+	public void salvar(E entidade) {
 		
 	
 		try {
