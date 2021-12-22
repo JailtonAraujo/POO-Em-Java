@@ -1,11 +1,11 @@
 package exercicios_POO_Basica;
 
 public class Conta {
-	private String NomeTitular;
-	private int NumeroConta;
-	private String Agencia;
-	private double Saldo;
-	private String Data;
+	public String NomeTitular;
+	public int NumeroConta;
+	public String Agencia;
+	public double Saldo;
+	public String Data;
 	
 	
 	public Conta() {}
