@@ -1,27 +1,31 @@
-package exercicios_POO_Basica;
+package src.exercicios_POO_Basica;
 
 public class Conta {
+	private int Identificador;
 	public String NomeTitular;
 	public int NumeroConta;
 	public String Agencia;
 	public double Saldo;
-	public String Data;
+	public Data Data;
 	
 	
 	public Conta() {}
 	
 	
 	
-	public Conta(String nomeTitular, int numeroConta, String agencia, double saldo, String data) {
+	public Conta(String nomeTitular) {
 		NomeTitular = nomeTitular;
-		NumeroConta = numeroConta;
-		Agencia = agencia;
-		Saldo = saldo;
-		Data = data;
 	}
 
 
-
+	public int getIdentificador() {
+		return this.Identificador;
+	}
+	
+	public void setIdentificador(int identificador) {
+		this.Identificador = identificador;
+	}
+	
 	public String getNomeTitular() {
 		return NomeTitular;
 	}
@@ -54,11 +58,11 @@ public class Conta {
 		Saldo = saldo;
 	}
 
-	public String getData() {
+	public Data getData() {
 		return Data;
 	}
 
-	public void setData(String data) {
+	public void setData(Data data) {
 		Data = data;
 	}
 
@@ -82,12 +86,12 @@ public class Conta {
 	
 	public String RecuperaDadosImpressao() {
 		String dados= "";
-		dados = "Nome Do Titular: "+this.NomeTitular+""
-				+"/nNumero Da Conta: "+this.NumeroConta+""
-				+ "/nAgência: "+this.Agencia+""
-				+ "/nSaldo: "+this.Saldo+""
-				+ "/nData: "+this.Data;
+		dados += "\nTitular: "+this.NomeTitular;
+		dados += "\nNumero Da Conta: "+this.NumeroConta;
+		dados += "\nAgência: "+this.Agencia;
+		dados += "\nSaldo: "+this.Saldo;
 		
+		dados += "\nData De Abertura: "+this.Data.formatada();
 		
 		return dados;
 	}
