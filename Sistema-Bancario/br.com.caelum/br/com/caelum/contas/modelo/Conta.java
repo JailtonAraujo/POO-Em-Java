@@ -1,6 +1,7 @@
-package exercicios_POO_Basica;
+package br.com.caelum.contas.modelo;
 
-public class Conta {
+
+public abstract class Conta {
 	private int Identificador;
 	public String NomeTitular;
 	public int NumeroConta;

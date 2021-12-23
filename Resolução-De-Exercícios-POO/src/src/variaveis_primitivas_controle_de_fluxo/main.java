@@ -1,4 +1,5 @@
-package src.variaveis_primitivas_controle_de_fluxo;
+package 
+variaveis_primitivas_controle_de_fluxo;
 
 public class main {
 public static void main(String[] args) {

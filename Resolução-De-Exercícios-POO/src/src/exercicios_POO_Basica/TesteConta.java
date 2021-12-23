@@ -1,4 +1,4 @@
-package src.exercicios_POO_Basica;
+package exercicios_POO_Basica;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

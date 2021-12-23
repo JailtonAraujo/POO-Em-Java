@@ -1,4 +1,5 @@
-package exercicios_POO_Basica;
+package br.com.caelum.contas.modelo;
+
 
 public class Data {
 	public int Dia;
