@@ -8,6 +8,7 @@ public class Cliente {
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		Socket cliente = new Socket("127.0.0.1",12345); 
+		System.out.println("O cliente se conectou ao servidor");
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -19,6 +20,6 @@ public class Cliente {
 		
 		saida.close();
 		teclado.close();
-		cliente.close();
+		
 	}
 }

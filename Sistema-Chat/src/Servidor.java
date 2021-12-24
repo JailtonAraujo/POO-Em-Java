@@ -8,10 +8,10 @@ public class Servidor {
 		ServerSocket servidor = new ServerSocket(12345);
 		System.out.println("Porta 12345 Aberta!");
 		
-		Socket Cliente = servidor.accept();
-		System.out.println("Nova Conexão Com Cliente "+Cliente.getInetAddress().getHostAddress());
+		Socket cliente = servidor.accept();
+		System.out.println("Nova Conexão Com Cliente "+cliente.getInetAddress().getHostAddress());
 		
-		Scanner scanner = new Scanner(Cliente.getInputStream());
+		Scanner scanner = new Scanner(cliente.getInputStream());
 		
 		while(scanner.hasNextLine()) {
 			System.out.println(scanner.nextLine());
@@ -19,6 +19,5 @@ public class Servidor {
 		
 		scanner.close();
 		servidor.close();
-		Cliente.close();
 	}
 }
