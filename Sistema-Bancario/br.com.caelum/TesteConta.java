@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
+import javax.swing.JOptionPane;
+
 import br.com.caelum.contas.modelo.Conta;
 import br.com.caelum.contas.modelo.Data;
 
@@ -12,9 +14,47 @@ public class TesteConta {
 
 	public static void main(String[] args) {
 		
-		LocalDate dataHoje = LocalDate.now();
+		boolean logado = false;
 		
-		String [] datasepara = dataHoje.toString().split("-");
+		while(true) {
+			/*entrar()*/
+			
+			if(logado == true) {
+				break;
+			}else {
+				/*entrar()*/
+			}
+		}
+		
+		
+		if(logado == false) {
+			JOptionPane.showMessageDialog(null, "Nenhuma conta encotrada");
+		}else {
+			
+			JOptionPane.showMessageDialog(null, "Bem vido Cliente");
+			
+			int opc =  Integer.parseInt(JOptionPane.showInputDialog("Infora opereão que deseja reaizar:"));
+			
+			while(true) {
+				
+				switch (opc) {
+				case 1:
+					/*sacar()*/
+					break;
+				case 2:
+					/*depositar()*/
+					break;
+				case 3:
+					/*extrato()*/
+					break;
+				case 0:
+					/*sair*/
+					break;
+				default:
+					System.out.println("Nenhuma opção valida foi selecionada!");
+				}
+			}
+		}
 		
 		
 		
