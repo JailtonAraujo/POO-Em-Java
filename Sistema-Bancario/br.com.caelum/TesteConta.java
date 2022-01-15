@@ -16,8 +16,9 @@ public class TesteConta {
 		
 		boolean logado = false;
 		
+		
 		while(true) {
-			/*entrar()*/
+			
 			
 			if(logado == true) {
 				break;

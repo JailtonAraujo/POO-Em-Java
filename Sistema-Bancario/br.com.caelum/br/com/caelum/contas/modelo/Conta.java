@@ -97,4 +97,12 @@ public abstract class Conta {
 		return dados;
 	}
 	
+	public boolean Entrar(String login, String senha) {
+		if (login.equals("admin") && senha.equals("123")) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }
