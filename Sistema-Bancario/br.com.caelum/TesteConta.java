@@ -7,6 +7,7 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 import br.com.caelum.contas.modelo.Conta;
+import br.com.caelum.contas.modelo.ContaPupanca;
 import br.com.caelum.contas.modelo.Data;
 
 public class TesteConta {
@@ -16,14 +17,21 @@ public class TesteConta {
 		
 		boolean logado = false;
 		
+		ContaPupanca conta = new ContaPupanca(); 
 		
 		while(true) {
 			
+			String login = JOptionPane.showInputDialog("Digite seu nome de usuario");
+			String senha = JOptionPane.showInputDialog("Digite sua senha:");
+			
+			logado = conta.Entrar(login, senha);
 			
 			if(logado == true) {
+				JOptionPane.showMessageDialog(null, "Bem vindo "+ login);
 				break;
 			}else {
-				/*entrar()*/
+				
+				JOptionPane.showMessageDialog(null, "Informações de usuario incorretas!");
 			}
 		}
 		
